@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title> BEST RAN 1</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="app-container">
+    <nav class="sidebar">
+      <img src="logo/RAN1.jpg" alt="logo" />
+      <h2>ALAHADY 20 JOLAY 2025</h2>
+      <button onclick="showPage('add')">📝 Mpifaninana</button>
+      <button onclick="showPage('aventurier')">
+        <img src="logo/aventurier.png" alt="Aventurier"
+          style="height: 20px; vertical-align: middle; margin-right: 8px;" />
+        Aventurier
+      </button>
+      <button onclick="showPage('explorateur')">
+        <img src="logo/explo.png" alt="Aventurier" style="height: 20px; vertical-align: middle; margin-right: 8px;" />
+        Explorateur</button>
+      <button onclick="showPage('ambassadeur')">
+        <img src="logo/ambassadeur.png" alt="Aventurier"
+          style="height: 20px; vertical-align: middle; margin-right: 8px;" />
+        Ambassadeur</button>
+      <button onclick="showPage('jeune')">
+        <img src="logo/aine.png" alt="Aventurier" style="height: 20px; vertical-align: middle; margin-right: 8px;" />
+        Jeune Adulte</button>
+      <button onclick="showPage('resultats')">📄 Résultats</button>
+    </nav>
+
+    <main class="content">
+
+      <!-- PAGE 1: Ajouter Mpifaninana -->
+      <div id="add" class="page">
+        <h2>📝 Fampidirana Mpifaninana</h2>
+        <input id="playerName" placeholder="Anarana" />
+        <select id="playerDistrict">
+          <option value="">--- Distrika ---</option>
+          <option>Ambohimangakely</option>
+          <option>Andraisoro</option>
+          <option>Soamanandrariny</option>
+          <option>Manjakandriana</option>
+        </select>
+        <select id="playerSection">
+          <option value="">--- Section ---</option>
+          <option value="aventurier">Aventurier</option>
+          <option value="explorateur">Explorateur</option>
+          <option value="ambassadeur">Ambassadeur</option>
+          <option value="jeune">Jeune Adulte</option>
+        </select>
+        <input type="file" id="playerImage" accept="image/*" />
+        <button onclick="addPlayer()">Ajouter</button>
+        <h3>📋 Lisitry ny Mpifaninana</h3>
+        <div id="playerList"></div>
+
+      </div>
+
+      <!-- PAGE 2-5: Sections Scoreboard -->
+      <div id="aventurier" class="page">
+        <h2>
+          <img src="logo/aventurier.png" alt="Logo Jeune Adulte"
+            style="height: 30px; vertical-align: middle; margin-right: 8px;" />
+          BEST Aventurier : EPISTILY NOSORATAN'I JAONA + DIA HO EO AMIN'I KRISTY
+        </h2>
+        <div id="players_aventurier" class="players-container"></div>
+        <div class="timer-controls">
+          <select id="timeSelect_aventurier">
+            <option value="30">30 sec</option>
+            <option value="60">1 min</option>
+            <option value="300">5 min</option>
+          </select>
+          <button onclick="startTimer('aventurier')">▶️ Start</button>
+          <button onclick="pauseTimer()">⏸️ Pause</button>
+          <button onclick="resetTimer()">🔄 Reset</button>
+          <span id="timer_aventurier">0</span>
+        </div>
+      </div>
+
+      <div id="explorateur" class="page">
+        <h2>
+          <img src="logo/explo.png" alt="Logo Jeune Adulte"
+            style="height: 30px; vertical-align: middle; margin-right: 8px;" />
+          BEST Explo : EPISTILY NOSORATAN'I JAONA + DIA HO EO AMIN'I KRISTY
+        </h2>
+        <div id="players_explorateur" class="players-container"></div>
+        <div class="timer-controls">
+          <select id="timeSelect_explorateur">
+            <option value="30">30 sec</option>
+            <option value="60">1 min</option>
+            <option value="300">5 min</option>
+          </select>
+          <button onclick="startTimer('explorateur')">▶️ Start</button>
+          <button onclick="pauseTimer()">⏸️ Pause</button>
+          <button onclick="resetTimer()">🔄 Reset</button>
+          <span id="timer_explorateur">0</span>
+        </div>
+      </div>
+
+      <div id="ambassadeur" class="page">
+        <h2>
+          <img src="logo/ambassadeur.png" alt="Logo Jeune Adulte"
+            style="height: 30px; vertical-align: middle; margin-right: 8px;" />
+          BEST Ambassadeur : APOKALIPSY + HERY MIFANANDRINA
+        </h2>
+        <div id="players_ambassadeur" class="players-container"></div>
+        <div class="timer-controls">
+          <select id="timeSelect_ambassadeur">
+            <option value="30">30 sec</option>
+            <option value="60">1 min</option>
+            <option value="300">5 min</option>
+          </select>
+          <button onclick="startTimer('ambassadeur')">▶️ Start</button>
+          <button onclick="pauseTimer()">⏸️ Pause</button>
+          <button onclick="resetTimer()">🔄 Reset</button>
+          <span id="timer_ambassadeur">0</span>
+        </div>
+      </div>
+
+      <div id="jeune" class="page">
+        <h2>
+          <img src="logo/aine.png" alt="Logo Jeune Adulte"
+            style="height: 30px; vertical-align: middle; margin-right: 8px;" />
+          BEST Jeune Adulte : APOKALIPSY + HERY MIFANANDRINA
+        </h2>
+        <div id="players_jeune" class="players-container"></div>
+        <div class="timer-controls">
+          <select id="timeSelect_jeune">
+            <option value="30">30 sec</option>
+            <option value="60">1 min</option>
+            <option value="300">5 min</option>
+          </select>
+          <button onclick="startTimer('jeune')">▶️ Start</button>
+          <button onclick="pauseTimer()">⏸️ Pause</button>
+          <button onclick="resetTimer()">🔄 Reset</button>
+          <span id="timer_jeune">0</span>
+        </div>
+      </div>
+
+      <!-- PAGE 6: Résultat Final -->
+      <div id="resultats" class="page">
+        <h2>📄 Résultats Finale</h2>
+        <button onclick="exportResults()">Exporter</button>
+        <pre id="finalResults"></pre>
+      </div>
+
+    </main>
+  </div>
+
+  <audio id="countdownSound" src="sounds/timer.mp3" preload="auto"></audio>
+  <audio id="endSound" src="sounds/end.mp3" preload="auto"></audio>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
